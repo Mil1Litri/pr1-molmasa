@@ -7,19 +7,22 @@ try:
     dati_vardnica = {el['symbol']: el['atomic_mass'] for el in dati_vardnica['elements']}
 except (KeyError, TypeError):
     print('Kļūda JSON struktūrā')
+
 def izvele():
     print('Sveiki! Laipni lūgti molmasas aprēķināšanas programmā.')
-    print('Programma darbojas 2 veidos: 1. Ātrs molmasas aprēķins. 2. Molmasas aprēķins + palīdzība')
+    print('Programma darbojas 2 veidos: 1. Ātrs molmasas aprēķins. 2. Molmasas aprēķins + palīdzība, ja vēlaties beigt, tad ievadiet "b" vai "beigt".')
     try:
         molmasa = True
         while molmasa == True:
-            mode = input('Izvēlies programmas darbošanās veidu: 1 vai 2')
-            if mode == "1" or mode == "1.":
+            veids = input('Izvēlies programmas darbošanās veidu: 1 vai 2')
+            if veids == "1" or veids == "1.":
                 atrais_aprekins()
                 break
-            elif mode == "2" or mode == "2.":
+            elif veids == "2" or veids == "2.":
                 molmasas_paligs()
                 break
+            elif veids == "b" or veids == "beigt":
+                molmasa = False
             else:
                 print('Jūsu izvēle neatbilst programmas noteikumiem, ievadiet atkārtoti.')
     except SyntaxError:
